@@ -1,11 +1,12 @@
-import joblib
+import cloudpickle
 import os
 from django.shortcuts import render
 from django.conf import settings
 
 # Load model once
 model_path = os.path.join(settings.BASE_DIR, 'banglore.pkl')
-model = joblib.load(model_path)
+with open(model_path, "rb") as f:
+    model = cloudpickle.load(f)
 
 def home(request):
     if request.method == 'POST':
