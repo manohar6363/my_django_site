@@ -5,7 +5,7 @@ from django.conf import settings
 
 # Load model once
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-model_path = os.path.join(BASE_DIR,"banglore.pkl")
+model_path = os.path.join(BASE_DIR,"predictor","banglore.pkl")
 with open(model_path, "rb") as f:
     model = cloudpickle.load(f)
 
