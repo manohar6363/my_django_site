@@ -57,3 +57,5 @@ whitenoise
 gunicorn
 Django==4.2.3
 joblib
+dj-database-url
+psycopg2-binary
