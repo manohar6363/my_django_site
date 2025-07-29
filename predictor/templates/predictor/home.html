@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>House Price Predictor</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        label { display: block; margin-top: 10px; }
+        input[type=text], input[type=number] { width: 300px; padding: 8px; }
+        button { margin-top: 20px; padding: 10px 20px; background-color: #2e86de; color: white; border: none; }
+        .result { margin-top: 20px; font-size: 20px; color: green; }
+    </style>
+</head>
+<body>
+    <h2>Predict House Price</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Bedrooms:</label>
+        <input type="number" name="bedrooms" step="1" required>
+
+        <label>Bathrooms:</label>
+        <input type="number" name="bathrooms" step="0.5" required>
+
+        <label>Sqft Living:</label>
+        <input type="number" name="sqft_living" required>
+
+        <label>Sqft Lot:</label>
+        <input type="number" name="sqft_lot" required>
+
+        <label>Sqft Above:</label>
+        <input type="number" name="sqft_above" required>
+
+        <label>Sqft Basement:</label>
+        <input type="number" name="sqft_basement" required>
+
+        <label>Year Built:</label>
+        <input type="number" name="yr_built" required>
+
+        <label>Year Renovated:</label>
+        <input type="number" name="yr_renovated" required>
+
+        <label>Street:</label>
+        <input type="text" name="street" required>
+
+        <label>City:</label>
+        <input type="text" name="city" required>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+    <div class="result">
+        Predicted Price: ${{ prediction }}
+    </div>
+    {% endif %}
+</body>
+</html>
