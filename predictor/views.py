@@ -4,7 +4,8 @@ from django.shortcuts import render
 from django.conf import settings
 
 # Load model once
-model_path = os.path.join(settings.BASE_DIR, 'banglore.pkl')
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(BASE_DIR,"banglore.pkl")
 with open(model_path, "rb") as f:
     model = cloudpickle.load(f)
 
